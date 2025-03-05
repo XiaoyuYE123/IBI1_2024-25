@@ -1,0 +1,1 @@
+As the course began, it is not very easy. Because I am not familiar with the commands in VS code. For example, I didn't what's the functions of the commands like 'git add' or 'dit commit'. Moreover, I didn't know the sequence of them. But as time progressed, things went more and more smoothly.
