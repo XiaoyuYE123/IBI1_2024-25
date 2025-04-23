@@ -1,0 +1,2 @@
+Calculate the average DALYs across every entities for each year
+DALYs in which year is the highest?
