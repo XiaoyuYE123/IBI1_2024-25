@@ -34,7 +34,7 @@ for t in range(1, timesteps+1):
     # plot the picture at some time steps
     if t in [1, 10, 30, 50, 100]:
         plt.figure(figsize=(6, 4), dpi=150)
-        plt.title(f't = {t}')
+        plt.title(f'timestep = {t}')
         plt.imshow(population, cmap='viridis', interpolation='nearest')
         plt.show()
 
