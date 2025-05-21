@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # S = number of susceptible individuals
 # I = number of infected individuals
 # R = number of recovered individuals
-# N = total population
+# N = population size
 # beta = rate of infection 
 # gamma = rate of recovery
 # t = time
@@ -20,7 +20,7 @@ S = 999
 R = 0
 # create the title for the plot
 plt.figure(figsize=(6, 4), dpi=150)
-plt.xlabel('time')
+plt.xlabel('Time')
 plt.ylabel('Number of people')
 plt.title('SIR Model')
 # create lists to store the number of infectious, susceptible and recovered individuals
@@ -51,7 +51,7 @@ for i in range(1000):
     list_susceptible.append(S)
     list_recovery.append(R)
 plt.plot(list_infectious, label='Infected')
-plt.plot(list_susceptible, label='susceptible')
+plt.plot(list_susceptible, label='Susceptible')
 plt.plot(list_recovery, label='Recovered')
 plt.legend()
 plt.show()
