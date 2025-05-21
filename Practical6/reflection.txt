@@ -1,0 +1,1 @@
+This practical is much harder than the previous ones. The most interesting part is that I learned to use random function to decide people who were infected or recovered. However, the propagating infection prediction using python is difficult, since the codes and logic are unfamiliar. 
