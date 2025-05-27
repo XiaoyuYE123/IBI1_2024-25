@@ -1,2 +1,16 @@
+the 10th year with DALYs data recorded in Afghanistan is 82624.94.
+UK has a higher average DALYs than France.
+
+Question:
 Calculate the average DALYs across every entities for each year
 DALYs in which year is the highest?
+
+answer: DALYs in the year 1994 is the largest one, which is  50570.999122807014
+
+discussion：1994 as a peak year:
+
+This suggests that the combined impact of disease, injury, and health-related disability was most severe (on average) in 1994 among the entities (likely countries or regions) analyzed.
+It may caused by lack of access to healthcare, political conflict or epidemics.
+Comparison over time:
+If DALYs decreased after 1994, this could reflect public health improvements, advances in medical treatment, or better disease prevention.
+If the trend increased toward 1994 and then dropped, it could point to a temporary health crisis.
