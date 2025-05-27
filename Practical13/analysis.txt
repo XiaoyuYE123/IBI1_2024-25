@@ -1,6 +1,14 @@
 The length of the human SOD2 protein is 222 amino acids and the subcellular localisation is mitochondrion matrix.
+Interpretation:It plays a crucial role in protecting cells from oxidative damage.
+
 The range of percentage identities in the reported online BLAST results is from 58.1% to 100%. 
+Interpretation: This suggests that while SOD2 is highly conserved in some organisms, there is also notable divergence in others.
+
 The alignment score between mouse_SOD2 and human_SOD2 is 1097 and the percentage identity is 90.09%
+Interpretation: This indicates strong sequence similarity and suggests that these two proteins are highly conserved, reflecting their close evolutionary relationship and possibly similar functional roles in their respective species.
+
 The alignment score between mouse_SOD2 and random_SOD2 is -222 and the percentage identity is 6.31%
 The alignment score between human_SOD2 and random_SOD2 is -229 and the percentage identity is 7.21%
+Interpretation:This confirms that the random sequences are not biologically related and supports the reliability of the alignment results.
+
 The mouse_SOD2 and human_SOD2 are most closely related.
