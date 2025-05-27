@@ -10,8 +10,9 @@ language_popularity = {
 print(language_popularity)
 
 # Variable for activity (language) that can be modified
-activity = 'Python'  # You can change this to any language in the dictionary
-
+# You can change this to any language in the dictionary
+print('Please enter an activity in the language_popularity dictionary:')
+activity = input()
 # Return popularity of the given language
 if activity in language_popularity:
     print(f"The popularity of {activity} is {language_popularity[activity]}%.")
