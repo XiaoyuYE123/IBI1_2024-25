@@ -26,15 +26,20 @@ for IM in list_probabitity:
     S=int(999-N*IM)
     I=1
     R=0
+    # create lists to store the number of infectious, susceptible and recovered individuals
     list_infectious = []
+    # simulate the SIR model for 1000 time steps under different vaccination rates
     for i in range(1000):
+        # generate a list of random numbers 0 or 1 to simulate the infection and recovery process
         list_susceptible1 = np.random.choice(range(2), S, p=[1-beta*I/N, beta*I/N])
         list_infectious1 = np.random.choice(range(2), I, p=[gamma, 1-gamma])
+        # if the number is 1, it means the susceptible individual gets infected, if the number is 0, it means the infectious individual recovers
         for j in list_susceptible1:
             if I>0:
                 if j == 1:
                     S -= 1
                     I += 1
+        # if the number is 0, it means the infectious individual recovers, if the number is 1, it means the infectious individual stays infectious
         for k in list_infectious1:
             if I>0:
                 if k == 1:
@@ -42,7 +47,9 @@ for IM in list_probabitity:
                 else:
                     R += 1
                     I -= 1
+    # append the number of infectious individuals to the list
         list_infectious.append(I)
+    # plot the number of infectious individuals over time for each vaccination rate
     plt.plot(list_infectious, label='the vaccination rate='+str(IM))
 plt.legend()
 plt.show()
