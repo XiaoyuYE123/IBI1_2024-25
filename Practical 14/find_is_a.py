@@ -11,15 +11,15 @@ terms = collection.getElementsByTagName("term")
 max_terms = {
     "biological_process": {
         "count": 0,
-        "term": []
+        "terms": []
     },
     "molecular_function": {
         "count": 0,
-        "term": []
+        "terms": []
     },
     "cellular_component": {
         "count": 0,
-        "term": []
+        "terms": []
     },
 }
 # get the term with most is_a in each namespace
@@ -132,13 +132,13 @@ parser.parse("go_obo.xml")
 end_time1 = time.time()
 elapsed = end_time1 - start_time1
 # Print the results from SAX parsing
-print("\nSAX Parsing Results:")
 for ns in ["biological_process", "molecular_function", "cellular_component"]:
     data = handler.max_terms[ns]
     print(f"\n{ns} (the greatest number of is_a = {data['count']}):")
     for t in data["terms"]:
         print(f"  {t['id']} <{t['name']}>")
 
+print("\nSAX Parsing Results:", elapsed)
 # Compare the running times of DOM and SAX
 if end_time - start_time < elapsed:
     print("DOM is faster than SAX")
