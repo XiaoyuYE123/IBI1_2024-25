@@ -20,7 +20,7 @@ max_terms = {
     "cellular_component": {
         "count": 0,
         "terms": []
-    },
+    }
 }
 # get the term with most is_a in each namespace
 # iterate the term
