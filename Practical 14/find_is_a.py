@@ -11,15 +11,15 @@ terms = collection.getElementsByTagName("term")
 max_terms = {
     "biological_process": {
         "count": 0,
-        "terms": []
+        "t": []
     },
     "molecular_function": {
         "count": 0,
-        "terms": []
+        "t": []
     },
     "cellular_component": {
         "count": 0,
-        "terms": []
+        "t": []
     }
 }
 # get the term with most is_a in each namespace
@@ -38,10 +38,10 @@ for term in terms:
             if is_a_count > max_terms[ns]["count"]:
         # find a new max, update the term
                 max_terms[ns]["count"] = is_a_count
-                max_terms[ns]["terms"] = [{"id": term_id, "name": term_name}]
+                max_terms[ns]["t"] = [{"id": term_id, "name": term_name}]
             elif is_a_count == max_terms[ns]["count"]:
         # if the count is the same, append the term to the list
-                max_terms[ns]["terms"].append({"id": term_id, "name": term_name})
+                max_terms[ns]["t"].append({"id": term_id, "name": term_name})
     except:
         continue  
 # skip the term if it has no id, name or namespace
@@ -53,7 +53,7 @@ print("DOM Results:")
 for ns in ["biological_process", "molecular_function", "cellular_component"]:
     data = max_terms[ns]
     print(f"{ns} (the greatest number of is_a = {data['count']}):")
-    for t in data["terms"]:
+    for t in data["t"]:
         print(f"  {t['id']} <{t['name']}>")
 # print the running time
 print("DOM running time:", end_time - start_time)
