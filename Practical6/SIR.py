@@ -28,13 +28,13 @@ list_infectious = []
 list_susceptible = []
 list_recovery = []
 times = (1000)
-# loop through the time
-# for each time, calculate the number of infectious individuals, susceptible individuals and recovered individuals
-# append the number of infectious, susceptible and recovered individuals to the list
-# plot the number of infectious, susceptible and recovered individuals
+# loop through the time steps to simulate the SIR model
 for i in range(1000):
+    # generate a list of random numbers 0 or 1 to simulate the infection and recovery process
+    # calculate the possibility of susceptible people getting infected and infectious people recovering
     list_susceptible1 = np.random.choice(range(2), S, p=[1-beta*I/N, beta*I/N])
     list_infectious1 = np.random.choice(range(2), I, p=[gamma, 1-gamma])
+    # update the number of susceptible, infectious and recovered individuals
     for j in list_susceptible1:
         if I>0:
             if j == 1:
@@ -50,6 +50,7 @@ for i in range(1000):
     list_infectious.append(I)
     list_susceptible.append(S)
     list_recovery.append(R)
+# plot the number of infectious, susceptible and recovered individuals over time
 plt.plot(list_infectious, label='Infected')
 plt.plot(list_susceptible, label='Susceptible')
 plt.plot(list_recovery, label='Recovered')
