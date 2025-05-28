@@ -25,16 +25,14 @@ dna_sequence = input("Enter your DNA sequence: ")
 Recognised_Sequence = input("Enter the sequence recognised by the restriction enzyme: ")
 
 # check if the input is valid
+# check if the DNA sequence is at least 4 nucleotides long
+if len(dna_sequence) < 5:
+    raise ValueError("Error: DNA sequence must be at least 4 nucleotides long.")
+#check if the nucleotides in the sequence are valid
 valid_nucleotides = {'A', 'T', 'G', 'C'}
 for nucleotide in dna_sequence:
     if nucleotide not in valid_nucleotides:
         raise ValueError("Error: DNA sequence contains invalid characters. Only A, T, G, C are allowed.")
-        if len(dna_sequence) < 5:
-            raise ValueError("Error: DNA sequence must be at least 4 nucleotides long.")
-        else:
-            continue
-    else:
-        continue
 # call the function and print the result
 cut_site = find_cut_site(dna_sequence, Recognised_Sequence)
 print(f"The cut site is: {cut_site}")
