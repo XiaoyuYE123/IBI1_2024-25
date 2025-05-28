@@ -74,9 +74,9 @@ class MaxIsAHandler(xml.sax.ContentHandler):
 
         # Dictionary to store the maximum number of is_a terms for each namespace
         self.max_terms = {
-            "biological_process": {"count": 0, "terms": []},
-            "molecular_function": {"count": 0, "terms": []},
-            "cellular_component": {"count": 0, "terms": []},
+            "biological_process": {"count": 0, "t": []},
+            "molecular_function": {"count": 0, "t": []},
+            "cellular_component": {"count": 0, "t": []},
         }
 
     def startElement(self, tag, attr):
@@ -110,13 +110,13 @@ class MaxIsAHandler(xml.sax.ContentHandler):
                 if self.temp_is_a_count > self.max_terms[ns]["count"]:
                     # find a new max, update the term
                     self.max_terms[ns]["count"] = self.temp_is_a_count
-                    self.max_terms[ns]["terms"] = [{
+                    self.max_terms[ns]["t"] = [{
                         "id": self.current_id,
                         "name": self.current_name
                     }]
                 elif self.temp_is_a_count == self.max_terms[ns]["count"]:
                     # if the count is the same, append the term to the list
-                    self.max_terms[ns]["terms"].append({
+                    self.max_terms[ns]["t"].append({
                         "id": self.current_id,
                         "name": self.current_name
                     })
@@ -136,7 +136,7 @@ print("\nSAX Parsing Results:")
 for ns in ["biological_process", "molecular_function", "cellular_component"]:
     data = handler.max_terms[ns]
     print(f"\n{ns} (the greatest number of is_a = {data['count']}):")
-    for t in data["terms"]:
+    for t in data["t"]:
         print(f"  {t['id']} <{t['name']}>")
 
 print("SAX running time:", elapsed)
