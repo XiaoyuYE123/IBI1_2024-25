@@ -1,3 +1,4 @@
+# import the necessary libraries
 import xml.dom.minidom
 import time
 # use dom to parse xml
@@ -6,6 +7,7 @@ start_time = time.time()
 # parse the xml file
 DOMTree = xml.dom.minidom.parse("go_obo.xml")
 collection = DOMTree.documentElement
+# get the terms from the xml file
 terms = collection.getElementsByTagName("term")
 # save the term with most is_a in each namespace
 max_terms = {
@@ -26,21 +28,20 @@ max_terms = {
 # iterate the term
 for term in terms:
     try:
-        # get the id, name, namespace and is_a
+        # get the id, name, namespace
+        # get the amount of is_a
         ns = term.getElementsByTagName("namespace")[0].firstChild.nodeValue.strip()
         term_id = term.getElementsByTagName("id")[0].firstChild.nodeValue.strip()
         term_name = term.getElementsByTagName("name")[0].firstChild.nodeValue.strip()
         is_a_list = term.getElementsByTagName("is_a")
         is_a_count = len(is_a_list)
-        # if the term has no is_a, continue
-        # save the term with most is_a in each namespace
+        # if the currnet term has larger is_a count than the current max, update the max
+        # if the current term has the same is_a count as the current max, append the term to the list
         if ns in max_terms:
             if is_a_count > max_terms[ns]["count"]:
-        # find a new max, update the term
                 max_terms[ns]["count"] = is_a_count
                 max_terms[ns]["t"] = [{"id": term_id, "name": term_name}]
             elif is_a_count == max_terms[ns]["count"]:
-        # if the count is the same, append the term to the list
                 max_terms[ns]["t"].append({"id": term_id, "name": term_name})
     except:
         continue  
@@ -91,6 +92,7 @@ class MaxIsAHandler(xml.sax.ContentHandler):
             self.temp_is_a_count = 0
 
     def characters(self, content):
+        # update the current tag content
         text = content.strip()
         if not self.in_term or not text:
             return
@@ -104,6 +106,7 @@ class MaxIsAHandler(xml.sax.ContentHandler):
             self.temp_is_a_count += 1
 
     def endElement(self, tag):
+        # When we reach the end of a term, we check if it has the maximum is_a count
         if tag == "term":
             ns = self.current_namespace
             if ns in self.max_terms:
